@@ -63,7 +63,7 @@ jupyter:
 https://netpeak.net/ru/blog/klikbyeit-zagolovki-vse-pochemu-lenta-facebook-stanet-luchshe/
 
 
-## Дзен 
+## Яндекс.Дзен 
 | Признак | Пример |
 | --- |  --- |
 | Утаивание информации, без которой невозможно понять содержание материала | Вы никогда не поверите, кто упал на красной дорожке... |
@@ -317,7 +317,10 @@ eli5.show_prediction(clf, df['text'][101], vec=vectorizer)
 eli5.show_prediction(clf, '1 things you should', vec=vectorizer)
 ```
 
-# Нграммы
+# Если классификаторы вас не любят, просто запомните эти два-три-н слова
+
+
+## Нграммы
 
 
 
@@ -554,12 +557,12 @@ counts_df.sort_values(by='occurrences', ascending=False).reset_index()['occurren
 https://events.yandex.ru/lib/talks/3298/
 
 
-# Сложность 2: разреженность
+# Ученые скрывают правда о том, сколько слов в мире! 
+
+## Разреженность
 Какое бы количество текстов мы не взяли -- все равно мы не охватим все возможные варианты. 
 То есть всегда будет найдется слово, которое мы не знаем. 
 Что же делать? 
-
-
 
 
 ## Считаем по буквам
@@ -601,6 +604,9 @@ eli5.show_weights(clf, top=(20, 20), vec=vectorizer)
 
 # В 1000 раз уменьшить пространство поможет...
 
+## SVD
+http://setosa.io/ev/principal-component-analysis/
+
 ```python
 from sklearn.linear_model import LogisticRegression
 
@@ -614,7 +620,7 @@ reduction = TruncatedSVD(n_components=20, algorithm='randomized', n_iter=10, ran
 
 X = reduction.fit_transform(X)
 ```
-
+## И насколько удачно?
 ```python
 reduction.explained_variance_ratio_
 ```
@@ -692,6 +698,7 @@ df[df.index.isin(related_docs_indices)]
 
 # Всего 2 размерности дадут вам...
 
+## Снова SVD
 ```python
 from sklearn.linear_model import LogisticRegression
 
@@ -729,11 +736,12 @@ plt.scatter(X[label0, 0], X[label0, 1], c='blue')
 http://textvis.lnu.se
 
 
-# Разложим слова
-(на базе https://github.com/madrugado/word2vec-article/blob/master/svd-example-2.ipynb)
+# Американские ученые открыли, что смысл слов ближе чем... 
+
 
 
 ## построим матрицу слово-слово
+(на базе https://github.com/madrugado/word2vec-article/blob/master/svd-example-2.ipynb)
 
 ```python
 import nltk 
@@ -865,16 +873,19 @@ for word, pos in w2v_df.iterrows():
 ```
 
 # PyTorch
+
+## install
 ```python
 ! pip install --upgrade git+https://github.com/pytorch/text
 ```
-
+## 
 ```python
 import pandas as pd
 import numpy as np
 import torch
 ```
 
+## fields
 ```python
 from torchtext.data import Field
 tokenize = lambda x: x.split()
@@ -882,7 +893,7 @@ TEXT = Field(sequential=True, tokenize=tokenize, lower=True)
  
 LABEL = Field(sequential=False, use_vocab=False)
 ```
-
+## data
 ```python
 VAL_RATIO = 0.2
 def prepare_csv(seed=1):
@@ -898,7 +909,7 @@ def prepare_csv(seed=1):
 ```python
 prepare_csv()
 ```
-
+##
 ```python
 from torchtext.data import TabularDataset
  
@@ -915,6 +926,8 @@ trn, vld = TabularDataset.splits(
 
 ```
 
+##
+
 ```python
 trn.head
 ```
@@ -922,19 +935,19 @@ trn.head
 ```python
 trn[0]
 ```
-
+##
 ```python
 trn[0].__dict__.keys()
 ```
-
+##
 ```python
 trn[0].text[:3]
 ```
-
+##
 ```python
 TEXT.build_vocab(trn)
 ```
-
+##
 ```python
 from torchtext.data import Iterator, BucketIterator
  
@@ -947,6 +960,7 @@ train_iter, val_iter = BucketIterator.splits(
  repeat=False # we pass repeat=False because we want to wrap this Iterator layer.
 )
 ```
+##
 
 ```python
 class BatchWrapper:
@@ -969,19 +983,26 @@ class BatchWrapper:
  
 ```
 
+##
+
 ```python
 train_dl = BatchWrapper(train_iter, "text", ["label"])
 valid_dl = BatchWrapper(val_iter, "text", ["label"])
 
 ```
 
+##
+
 ```python
 next(train_dl.__iter__())
 ```
+##
 
 ```python
 
 ```
+
+## Нейросетка
 
 ```python
 from torch import nn
@@ -1007,6 +1028,8 @@ class SimpleBiLSTMBaseline(nn.Module):
         return preds
 ```
 
+##
+
 ```python
 
 em_sz = 100
@@ -1015,6 +1038,7 @@ nl = 3
 model = SimpleBiLSTMBaseline(nh, emb_dim=em_sz); model
 ```
 
+## 
 ```python
 import tqdm
 ```
@@ -1027,6 +1051,7 @@ loss_func = nn.BCEWithLogitsLoss()
 ```python
 epochs = 2
 ```
+## Обучаем
 
 ```python
 %%time
@@ -1150,4 +1175,7 @@ https://www.semanticscholar.org/
 https://github.com/keon/awesome-nlp
 
 # Летняя школа по NLP
-![](lsh.png)
+
+## 
+
+![](lsh.jpg)
