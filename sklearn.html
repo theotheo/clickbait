@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Ильдар Белялов">
+  <title>Ты не поверишь, что скрывает NLP! Смотри дальше, чтобы узнать</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Ты не поверишь, что скрывает NLP! Смотри дальше, чтобы узнать</h1>
+  <p class="author">Ильдар Белялов</p>
+  <p class="date">17.02.19</p>
+</section>
+
+<section><section id="вводные-слова" class="title-slide slide level1"><h1>Вводные слова</h1></section><section id="о-лекторе" class="slide level2">
+<h2>О лекторе</h2>
+<p>Если есть вопросы, то буду рад вам помочь с ними разобраться. Пишите:</p>
+<ul>
+<li>http://vk.me/theotheo</li>
+<li>http://t.me/ibelyalov</li>
+</ul>
+</section><section id="о-вас" class="slide level2">
+<h2>О вас</h2>
+</section><section id="о-лекции" class="slide level2">
+<h2>О лекции</h2>
+<p>Хотелось бы создать представление о том, чем занимается НЛП: о задачах, результатах, о возможностях и проблемах</p>
+<p>Чтобы вы могли гордо сказать: “НЛП? Ну я что-то слышал…”</p>
+</section></section>
+<section><section id="введение" class="title-slide slide level1"><h1>Введение</h1></section><section id="проблема" class="slide level2">
+<h2>Проблема</h2>
+<p>Распознавание кликбейтов</p>
+</section><section id="кликбейт" class="slide level2">
+<h2>Кликбейт</h2>
+<pre><code>Кликбейт-заголовок (от clickbait — клик-приманка) — преднамеренно искаженный заголовок материала, зачастую низкого качества, основная задача которого — привлечение внимания пользователей социальной сети и провокация с целью перейти по ссылке.</code></pre>
+<p>https://netpeak.net/ru/blog/klikbyeit-zagolovki-vse-pochemu-lenta-facebook-stanet-luchshe/</p>
+</section><section id="дзен" class="slide level2">
+<h2>Дзен</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Признак</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Утаивание информации, без которой невозможно понять содержание материала</td>
+<td>Вы никогда не поверите, кто упал на красной дорожке…</td>
+</tr>
+<tr class="even">
+<td>Бессмысленные эмоционально окрашенные фразы</td>
+<td>Свежая фотоподборка! Полный угар! Лежали всем офисом</td>
+</tr>
+<tr class="odd">
+<td>Преувеличение или искажение фактов</td>
+<td>Ученые выяснили: планете осталось недолго…</td>
+</tr>
+<tr class="even">
+<td>Обилие лишних заглавных букв и знаков препинания</td>
+<td>Случай на пляже В СОЧИ!!! СМОТРЕТЬ всем!</td>
+</tr>
+<tr class="odd">
+<td>Повелительное наклонение, обращение на «ты»</td>
+<td>Ты не поверишь, что скрывает правительство! Жми ссылку, чтобы узнать!</td>
+</tr>
+<tr class="even">
+<td>Искажение текста: лишние пробелы или их отсутствие, орфографические ошибки</td>
+<td>Новая ЗВЕЗДАЯ диета! Читай пока неудалили!</td>
+</tr>
+</tbody>
+</table>
+<p>https://yandex.ru/support/zen/requirements/clickbait.html</p>
+</section><section id="вк" class="slide level2">
+<h2>ВК</h2>
+<p><img data-src="https://pp.userapi.com/c850536/v850536189/73b13/qDY_Flls43I.jpg" /> https://vk.com/<span class="citation" data-cites="brown_room-click-click">@brown_room-click-click</span></p>
+</section><section id="facebook" class="slide level2">
+<h2>Facebook</h2>
+<pre><code>People tell us they don’t like stories that are misleading, sensational or spammy. That includes clickbait headlines that are designed to get attention and lure visitors into clicking on a link. In an effort to support an informed community, we’re always working to determine what stories might have clickbait headlines so we can show them less often.</code></pre>
+<p>https://newsroom.fb.com/news/2017/05/news-feed-fyi-new-updates-to-reduce-clickbait-headlines/</p>
+</section><section id="section" class="slide level2">
+<h2></h2>
+<p><img data-src="https://pp.userapi.com/c849528/v849528457/2a859/jVrN1a96OmA.jpg" /> https://vk.com/weirdreparametrizationtrick?w=wall-131489096_4058</p>
+</section><section id="корпус" class="slide level2">
+<h2>Корпус</h2>
+<pre><code>  Abhijnan Chakraborty, Bhargavi Paranjape, Sourya Kakarla, and Niloy Ganguly. &quot;Stop Clickbait: Detecting and Preventing Clickbaits in Online News Media”. In Proceedings of the 2016 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM), San Fransisco, US, August 2016.</code></pre>
+<p>https://github.com/bhargaviparanjape/clickbait</p>
+</section><section id="конвертация-в-dataframe" class="slide level2">
+<h2>Конвертация в dataframe</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">from</span> pathlib <span class="im">import</span> Path</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">clickbait_text <span class="op">=</span> Path(<span class="st">&#39;clickbait/dataset/clickbait_data&#39;</span>).read_text()</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">non_clickbait_text <span class="op">=</span> Path(<span class="st">&#39;clickbait/dataset/non_clickbait_data&#39;</span>).read_text()</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">clickbait <span class="op">=</span> pd.DataFrame([(line, <span class="dv">1</span>) <span class="cf">for</span> line <span class="kw">in</span> clickbait_text.split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>) <span class="cf">if</span> line], columns<span class="op">=</span>[<span class="st">&#39;text&#39;</span>, <span class="st">&#39;label&#39;</span>])</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">non_clickbait <span class="op">=</span> pd.DataFrame([(line, <span class="dv">0</span>) <span class="cf">for</span> line <span class="kw">in</span> non_clickbait_text.split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>) <span class="cf">if</span> line], columns<span class="op">=</span>[<span class="st">&#39;text&#39;</span>, <span class="st">&#39;label&#39;</span>])</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">df <span class="op">=</span> pd.concat([clickbait, non_clickbait])</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">df <span class="op">=</span> df.reset_index(drop<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># df.to_csv(&#39;df.csv&#39;, index=False)</span></a></code></pre></div>
+</section><section id="пример" class="slide level2">
+<h2>Пример</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">pd.options.display.max_colwidth <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">df.sample(<span class="dv">10</span>)</a></code></pre></div>
+</section><section id="dataframe" class="slide level2">
+<h2>Dataframe</h2>
+<p>Грубо говоря табличный формат данных</p>
+</section><section id="структура-данных" class="slide level2">
+<h2>Структура данных</h2>
+<p>text – заголовки</p>
+<p>label – 1, если кликбейт; 0, если не</p>
+</section><section id="итак" class="slide level2">
+<h2>Итак</h2>
+<p>Есть примеры кликбейтов и есть примеры некликбейтов.</p>
+<p>Как научить отличать их друг от друга?</p>
+</section></section>
+<section><section id="решение-в-1-строку.-wow" class="title-slide slide level1"><h1>Решение в 1 строку. WOW!</h1></section><section id="решаем" class="slide level2">
+<h2>“Решаем”</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="im">import</span> random </a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">predict <span class="op">=</span> [random.choice([<span class="dv">0</span>, <span class="dv">1</span>]) <span class="cf">for</span> <span class="bu">id</span>, row <span class="kw">in</span> df.iterrows()] <span class="co"># вот она</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">predict[:<span class="dv">10</span>] <span class="co"># пример наших предсказаний</span></a></code></pre></div>
+</section><section id="оценим-результаты" class="slide level2">
+<h2>Оценим результаты</h2>
+</section><section id="метрики-классификации" class="slide level2">
+<h2>Метрики классификации</h2>
+<p>https://github.com/utd-ai/DMIA2018_Fall_public/blob/master/lecture05/L5_Validation.pdf</p>
+<p><img data-src="metrics1.png" /></p>
+</section><section id="precision" class="slide level2">
+<h2>Precision</h2>
+<p><img data-src="metrics2.png" /></p>
+</section><section id="recall" class="slide level2">
+<h2>Recall</h2>
+<p><img data-src="metrics3.png" /></p>
+</section><section id="f1" class="slide level2">
+<h2>F1</h2>
+<p><span class="math inline">$F1 = 2\frac{precision \cdot recall}{precision + recall}$</span></p>
+</section><section id="матрица-ошибок" class="slide level2">
+<h2>Матрица ошибок</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="im">import</span> seaborn <span class="im">as</span> sns</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">cm <span class="op">=</span> confusion_matrix(true, predict)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="bu">print</span>(classification_report(true, predict))</a></code></pre></div>
+</section></section>
+<section><section id="правил-кликбейта" class="title-slide slide level1"><h1>5 правил кликбейта</h1></section><section id="section-1" class="slide level2">
+<h2></h2>
+<p><img data-src="regex.png" /></p>
+<p>https://regex101.com/r/WwV5Rg/1</p>
+</section><section id="оценка" class="slide level2">
+<h2>Оценка</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">predict <span class="op">=</span> df[<span class="st">&#39;text&#39;</span>].<span class="bu">str</span>.match(RULE).astype(<span class="bu">int</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">cm <span class="op">=</span> confusion_matrix(true, predict)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="bu">print</span>(classification_report(true, predict))</a></code></pre></div>
+</section></section>
+<section><section id="машинное-обучение" class="title-slide slide level1"><h1>Машинное обучение</h1></section><section id="пример-который-вы-не-забудете" class="slide level2">
+<h2>Пример, который вы не забудете</h2>
+<p>http://www.r2d3.us/Наглядное-Введение-в-Теорию-Машинного-Обучения/</p>
+</section><section id="section-2" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<p>X – матрица фичей</p>
+<p>y – вектор лейблов</p>
+</div><div class="column">
+<p>X = [возвышение, год постройки, кол-во ванных, кол-во спален, стоимость, площадь, цена за m2]</p>
+<p>y = [Сан-Франциско, Нью-Йорк]</p>
+</div>
+</div>
+</section><section id="для-примера" class="slide level2">
+<h2>для примера</h2>
+</section><section id="task-классификация-текстов" class="slide level2">
+<h2>[task] Классификация текстов</h2>
+</section><section id="векторизация" class="slide level2">
+<h2>Векторизация</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">vectorizer <span class="op">=</span> CountVectorizer()</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">y <span class="op">=</span> df[<span class="st">&#39;label&#39;</span>]</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">X <span class="op">=</span> vectorizer.fit_transform(df[<span class="st">&#39;text&#39;</span>][:<span class="dv">100</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">pd.DataFrame(X.A, columns<span class="op">=</span>vectorizer.get_feature_names())</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">occ <span class="op">=</span> np.asarray(X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)).ravel().tolist()</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">counts_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;term&#39;</span>: vectorizer.get_feature_names(), <span class="st">&#39;occurrences&#39;</span>: occ})</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">counts_df.sort_values(by<span class="op">=</span><span class="st">&#39;occurrences&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">20</span>)</a></code></pre></div>
+</section><section id="обучение" class="slide level2">
+<h2>Обучение</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co"># from sklearn.linear_model import SGDClassifier</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">X <span class="op">=</span> vectorizer.fit_transform(df[<span class="st">&#39;text&#39;</span>])</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">X_train,X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">clf <span class="op">=</span> LogisticRegression()</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">clf.fit(X_train, y_train)</a></code></pre></div>
+</section><section id="оценка-1" class="slide level2">
+<h2>Оценка</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">predict <span class="op">=</span> clf.predict(X_test)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">cm <span class="op">=</span> confusion_matrix(y_test, predict)</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="bu">print</span>(classification_report(y_test, predict))</a></code></pre></div>
+</section><section id="интроспекция" class="slide level2">
+<h2>Интроспекция</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="im">import</span> eli5</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">eli5.show_weights(clf, top<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>), vec<span class="op">=</span>vectorizer)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">eli5.show_prediction(clf, df[<span class="st">&#39;text&#39;</span>][<span class="dv">101</span>], vec<span class="op">=</span>vectorizer)</a></code></pre></div>
+</section><section id="совсем-новый-текст" class="slide level2">
+<h2>Совсем новый текст</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1">eli5.show_prediction(clf, <span class="st">&#39;1 things you should&#39;</span>, vec<span class="op">=</span>vectorizer)</a></code></pre></div>
+</section></section>
+<section><section id="нграммы" class="title-slide slide level1"><h1>Нграммы</h1></section><section id="оценка-2" class="slide level2">
+<h2>Оценка</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1">predict <span class="op">=</span> clf.predict(X_test)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">cm <span class="op">=</span> confusion_matrix(y_test, predict)</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, annot_kws<span class="op">=</span>{<span class="st">&quot;size&quot;</span>: <span class="dv">16</span>}, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+</section><section id="интроспекция-1" class="slide level2">
+<h2>Интроспекция</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="im">import</span> eli5</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">eli5.show_weights(clf, top<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>), vec<span class="op">=</span>vectorizer)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># from sklearn.linear_model import LogisticRegression</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="co"># # from sklearn.linear_model import SGDClassifier</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="co"># vectorizer = CountVectorizer(ngram_range=(2, 2))</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="co"># y = df[&#39;label&#39;]</span></a>
+<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="co"># X = vectorizer.fit_transform(df[&#39;text&#39;])</span></a>
+<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="co"># X_train, X_test, y_train, y_test = train_test_split(X, y)</span></a>
+<a class="sourceLine" id="cb22-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co"># clf = LogisticRegression()</span></a>
+<a class="sourceLine" id="cb22-11" data-line-number="11"><span class="co"># clf.fit(X_train, y_train)</span></a></code></pre></div>
+</section><section id="мешок-слов" class="slide level2">
+<h2>Мешок слов</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1">bag_of_words <span class="op">=</span> df[<span class="st">&#39;text&#39;</span>][<span class="dv">30996</span>].split()</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="bu">print</span>(bag_of_words)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="bu">print</span>([<span class="st">&#39;FBI&#39;</span>, <span class="st">&#39;not&#39;</span>, <span class="st">&#39;confirms&#39;</span>, <span class="st">&#39;that&#39;</span>, <span class="st">&#39;ricin&#39;</span>, <span class="st">&#39;was&#39;</span>, <span class="st">&#39;found&#39;</span>, <span class="st">&#39;at&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;University&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;Texas&#39;</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="bu">print</span>(<span class="bu">sorted</span>([<span class="st">&#39;FBI&#39;</span>, <span class="st">&#39;not&#39;</span>, <span class="st">&#39;confirms&#39;</span>, <span class="st">&#39;that&#39;</span>, <span class="st">&#39;ricin&#39;</span>, <span class="st">&#39;was&#39;</span>, <span class="st">&#39;found&#39;</span>, <span class="st">&#39;at&#39;</span>, <span class="st">&#39;the&#39;</span>, <span class="st">&#39;University&#39;</span>, <span class="st">&#39;of&#39;</span>, <span class="st">&#39;Texas&#39;</span>]))</a></code></pre></div>
+</section><section id="task-negation" class="slide level2">
+<h2>[task] Negation</h2>
+<p><img data-src="negation.png" /></p>
+<p>https://aclanthology.info/catalog?q=negation&amp;search_field=all_fields&amp;sort=publish_date+desc%2C+venue_type+asc%2C+paper_anthology+asc%2C+score+asc&amp;utf8=✓</p>
+</section><section id="task-анализ-тональности" class="slide level2">
+<h2>[task] Анализ тональности</h2>
+<p><img data-src="https://www.brandwatch.com/wp-content/resize/uploads/2015/01/royal-baby1.jpg" /></p>
+<p>Анализ тональности – задача выявления эмоциональной окрашенности текста</p>
+</section></section>
+<section><section id="языковая-модель-для-генерации" class="title-slide slide level1"><h1>Языковая модель для генерации</h1></section><section id="собираем-слова-вместе" class="slide level2">
+<h2>Собираем слова вместе</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">words <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="cf">for</span> title <span class="kw">in</span> df[<span class="st">&#39;text&#39;</span>].tolist():</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">    words.extend(title.split())</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">words[:<span class="dv">10</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="im">import</span> nltk</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">freqs <span class="op">=</span> nltk.FreqDist(words) <span class="co"># словарь с частотами</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">freqs.most_common(<span class="dv">20</span>)</a></code></pre></div>
+</section><section id="частоты-пар-биграмм" class="slide level2">
+<h2>Частоты пар / биграмм</h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># an nltk.ConditionalFreqDist() counts frequencies of pairs.</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="co"># When given a list of bigrams, it maps each first word of a bigram</span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="co"># to a FreqDist over the second words of the bigram.</span></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb28-5" data-line-number="5">cfreq_2gram <span class="op">=</span> nltk.ConditionalFreqDist(nltk.bigrams(words))</a>
+<a class="sourceLine" id="cb28-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb28-7" data-line-number="7">cfreq_2gram.conditions()[:<span class="dv">10</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" data-line-number="1">cfreq_2gram[<span class="st">&quot;I&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb30-1" data-line-number="1">cfreq_2gram[<span class="st">&quot;I&quot;</span>].most_common(<span class="dv">10</span>)</a></code></pre></div>
+</section><section id="вероятности-биграмм" class="slide level2">
+<h2>Вероятности биграмм</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># an nltk.ConditionalProbDist() maps pairs to probabilities.</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co"># One way in which we can do this is by using Maximum Likelihood Estimation (MLE)</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">cprob_2gram <span class="op">=</span> nltk.ConditionalProbDist(cfreq_2gram, nltk.MLEProbDist)</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"><span class="co"># Here is what we find for &quot;my&quot;: a Maximum Likelihood Estimation-based probability distribution,</span></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="co"># as a MLEProbDist object.</span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9">cprob_2gram[<span class="st">&quot;I&quot;</span>] <span class="co"># Вероятность I</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># примеры слов что могут идти _после_ I</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">cprob_2gram[<span class="st">&quot;I&quot;</span>].samples() </a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co"># вероятности пары</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">cprob_2gram[<span class="st">&quot;I&quot;</span>].prob(<span class="st">&quot;can&quot;</span>)</a></code></pre></div>
+</section><section id="вероятность-целого-предложения" class="slide level2">
+<h2>Вероятность целого предложения</h2>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb34-1" data-line-number="1">freq_1gram <span class="op">=</span> nltk.FreqDist(words)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">len_words <span class="op">=</span> <span class="bu">len</span>(words)</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="kw">def</span> unigram_prob(word):</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">    <span class="cf">return</span> freq_1gram[word] <span class="op">/</span> len_words</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># P(how do you do) = P(how) * P(do|how) * P(you|do) * P(do | you)</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">prob_sentence <span class="op">=</span> unigram_prob(<span class="st">&quot;how&quot;</span>) <span class="op">*</span> cprob_2gram[<span class="st">&quot;how&quot;</span>].prob(<span class="st">&quot;do&quot;</span>) <span class="op">*</span> cprob_2gram[<span class="st">&quot;do&quot;</span>].prob(<span class="st">&quot;you&quot;</span>) <span class="op">*</span> cprob_2gram[<span class="st">&quot;you&quot;</span>].prob(<span class="st">&quot;do&quot;</span>)</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">prob_sentence</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb36-1" data-line-number="1">text <span class="op">=</span> <span class="st">&quot;I lived in&quot;</span></a></code></pre></div>
+</section><section id="генерация-текста" class="slide level2">
+<h2>Генерация текста</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" data-line-number="1">cprob_2gram[<span class="st">&quot;I&quot;</span>].generate()</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" data-line-number="1">word <span class="op">=</span> <span class="st">&quot;5&quot;</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">sent <span class="op">=</span> [word]</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">    word <span class="op">=</span> cprob_2gram[ word].generate()</a>
+<a class="sourceLine" id="cb38-5" data-line-number="5">    sent.append(word)</a>
+<a class="sourceLine" id="cb38-6" data-line-number="6">    </a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">&#39; &#39;</span>.join(sent)</a></code></pre></div>
+</section><section id="сгенерированные-примеры" class="slide level2">
+<h2>Сгенерированные примеры</h2>
+<p><img data-src="lm.png" /></p>
+<p>‘What Was Better Project NASCAR driver Kyle Busch wins season Trade’</p>
+<p>‘What Is Real, Official UN releases 2005 wraps up German music’</p>
+<p>‘5 Ridiculously Adorable Animals 25 Times “Frasier” Was Grosser Than Reese's’</p>
+</section><section id="task-spell-checker" class="slide level2">
+<h2>[task] Spell Checker</h2>
+</section><section id="task-predictive-input" class="slide level2">
+<h2>[task] Predictive Input</h2>
+</section></section>
+<section><section id="давай-посмотрим-на-наши-слова" class="title-slide slide level1"><h1>Давай посмотрим на наши слова</h1></section><section id="частоты" class="slide level2">
+<h2>Частоты</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" data-line-number="1">occ <span class="op">=</span> np.asarray(X.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)).ravel().tolist()</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">counts_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;term&#39;</span>: vectorizer.get_feature_names(), <span class="st">&#39;occurrences&#39;</span>: occ})</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">counts_df.sort_values(by<span class="op">=</span><span class="st">&#39;occurrences&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">20</span>)</a></code></pre></div>
+</section><section id="график-топ-20" class="slide level2">
+<h2>График топ 20</h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" data-line-number="1">counts_df.sort_values(by<span class="op">=</span><span class="st">&#39;occurrences&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">20</span>).reset_index()[<span class="st">&#39;occurrences&#39;</span>].plot()</a></code></pre></div>
+</section><section id="логарифмический-график" class="slide level2">
+<h2>Логарифмический график</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" data-line-number="1">counts_df.sort_values(by<span class="op">=</span><span class="st">&#39;occurrences&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index()[<span class="st">&#39;occurrences&#39;</span>].plot(logy<span class="op">=</span><span class="va">True</span>, logx<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+</section><section id="все" class="slide level2">
+<h2>Все</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">counts_df.sort_values(by<span class="op">=</span><span class="st">&#39;occurrences&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index()[<span class="st">&#39;occurrences&#39;</span>].plot()</a></code></pre></div>
+</section><section id="закон-ципфа" class="slide level2">
+<h2>Закон Ципфа</h2>
+<pre><code>Закон Ципфа: График для частот слов из статей русской Википедии с рангами от 3 до 170
+Зако́н Ци́пфа («ранг—частота») — эмпирическая закономерность распределения частоты слов естественного языка: если все слова языка (или просто достаточно длинного текста) упорядочить по убыванию частоты их использования, то частота n-го слова в таком списке окажется приблизительно обратно пропорциональной его порядковому номеру n (так называемому рангу этого слова, см. шкала порядка). Например, второе по используемости слово встречается примерно в два раза реже, чем первое, третье — в три раза реже, чем первое, и так далее.</code></pre>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/ru/d/d8/WikipediaZipf20061023.png" /></p>
+</section><section id="task-частотные-словари" class="slide level2">
+<h2>[task] Частотные словари</h2>
+<p>https://events.yandex.ru/lib/talks/3298/</p>
+</section></section>
+<section><section id="сложность-2-разреженность" class="title-slide slide level1"><h1>Сложность 2: разреженность</h1></section><section id="считаем-по-буквам" class="slide level2">
+<h2>Считаем по буквам</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb44-3" data-line-number="3">vectorizer <span class="op">=</span> CountVectorizer(ngram_range<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), analyzer<span class="op">=</span><span class="st">&#39;char&#39;</span>)</a>
+<a class="sourceLine" id="cb44-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb44-5" data-line-number="5">y <span class="op">=</span> df[<span class="st">&#39;label&#39;</span>]</a>
+<a class="sourceLine" id="cb44-6" data-line-number="6">X <span class="op">=</span> vectorizer.fit_transform(df[<span class="st">&#39;text&#39;</span>])</a></code></pre></div>
+</section><section id="матрица-фичей" class="slide level2">
+<h2>Матрица фичей</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" data-line-number="1">pd.DataFrame(X.A, columns<span class="op">=</span>vectorizer.get_feature_names())</a></code></pre></div>
+</section><section id="обучение-1" class="slide level2">
+<h2>Обучение</h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" data-line-number="1">X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y)</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">clf <span class="op">=</span> LogisticRegression()</a>
+<a class="sourceLine" id="cb46-4" data-line-number="4">clf.fit(X_train, y_train)</a></code></pre></div>
+</section><section id="оценка-3" class="slide level2">
+<h2>Оценка</h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb47-1" data-line-number="1">predict <span class="op">=</span> clf.predict(X_test)</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">cm <span class="op">=</span> confusion_matrix(y_test, predict)</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, annot_kws<span class="op">=</span>{<span class="st">&quot;size&quot;</span>: <span class="dv">16</span>}, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+</section><section id="интроспекция-2" class="slide level2">
+<h2>Интроспекция</h2>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" data-line-number="1">eli5.show_weights(clf, top<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>), vec<span class="op">=</span>vectorizer)</a></code></pre></div>
+</section></section>
+<section><section id="в-1000-раз-уменьшить-пространство-поможет" class="title-slide slide level1"><h1>В 1000 раз уменьшить пространство поможет…</h1></section><section id="матрица-фичей-1" class="slide level2">
+<h2>Матрица фичей</h2>
+<p>N-мерная, плотная (dense)</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb49-1" data-line-number="1">pd.DataFrame(X)</a></code></pre></div>
+</section><section id="обучение-2" class="slide level2">
+<h2>Обучение</h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb50-1" data-line-number="1">X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y)</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">clf <span class="op">=</span> LogisticRegression()</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">clf.fit(X_train, y_train)</a></code></pre></div>
+</section><section id="оценка-4" class="slide level2">
+<h2>Оценка</h2>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb51-1" data-line-number="1">predict <span class="op">=</span> clf.predict(X_test)</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">cm <span class="op">=</span> confusion_matrix(y_test, predict)</a>
+<a class="sourceLine" id="cb51-4" data-line-number="4">sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+</section><section id="task-latent-semantic-analysis-lsa" class="slide level2">
+<h2>[task] Latent semantic analysis (LSA)</h2>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/7/70/Topic_model_scheme.webm"><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Topic_model_scheme.webm/450px-seek%3D17.6-Topic_model_scheme.webm.jpg" alt="Watch the video" /></a></p>
+</section></section>
+<section><section id="как-сделать-свой-google" class="title-slide slide level1"><h1>Как сделать свой Google</h1></section><section id="векторизуем-наши-документы" class="slide level2">
+<h2>Векторизуем наши документы</h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3">vectorizer <span class="op">=</span> CountVectorizer()</a>
+<a class="sourceLine" id="cb52-4" data-line-number="4">matrix <span class="op">=</span> vectorizer.fit_transform(df[<span class="st">&#39;text&#39;</span>])</a>
+<a class="sourceLine" id="cb52-5" data-line-number="5">matrix</a></code></pre></div>
+</section><section id="векторизуем-запрос" class="slide level2">
+<h2>Векторизуем запрос</h2>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb53-1" data-line-number="1">query <span class="op">=</span> vectorizer.transform([<span class="st">&#39;10 greatest things&#39;</span>])</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">query</a></code></pre></div>
+</section><section id="считаем-косинусное-расстояние" class="slide level2">
+<h2>Считаем косинусное расстояние</h2>
+<p><img data-src="https://neo4j.com/docs/graph-algorithms/current/images/cosine-similarity.png" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> linear_kernel</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">cosine_similarities <span class="op">=</span> linear_kernel(query, X).flatten()</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4">cosine_similarities</a></code></pre></div>
+</section><section id="отбираем-ближайшие-документы" class="slide level2">
+<h2>Отбираем ближайшие документы</h2>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb55-1" data-line-number="1">related_docs_indices <span class="op">=</span> cosine_similarities.argsort()[:<span class="op">-</span><span class="dv">5</span>:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">related_docs_indices</a>
+<a class="sourceLine" id="cb55-3" data-line-number="3">df[df.index.isin(related_docs_indices)]</a></code></pre></div>
+</section><section id="task-information-retrieval-ir" class="slide level2">
+<h2>[task] Information Retrieval (IR)</h2>
+</section></section>
+<section><section id="всего-2-размерности-дадут-вам" class="title-slide slide level1"><h1>Всего 2 размерности дадут вам…</h1></section><section id="матрица-фичей-2" class="slide level2">
+<h2>Матрица фичей</h2>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb56-1" data-line-number="1">pd.DataFrame(X)</a></code></pre></div>
+</section><section id="визуализация" class="slide level2">
+<h2>Визуализация</h2>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">label1 <span class="op">=</span> df[df[<span class="st">&#39;label&#39;</span>] <span class="op">==</span> <span class="dv">1</span>].index</a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">plt.scatter(X[label1, <span class="dv">0</span>], X[label1, <span class="dv">1</span>], c<span class="op">=</span><span class="st">&#39;red&#39;</span>)</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6">label0 <span class="op">=</span> df[df[<span class="st">&#39;label&#39;</span>] <span class="op">==</span> <span class="dv">0</span>].index</a>
+<a class="sourceLine" id="cb57-7" data-line-number="7">plt.scatter(X[label0, <span class="dv">0</span>], X[label0, <span class="dv">1</span>], c<span class="op">=</span><span class="st">&#39;blue&#39;</span>)</a></code></pre></div>
+</section><section id="task-text-visualization" class="slide level2">
+<h2>[task] Text visualization</h2>
+<p>http://textvis.lnu.se</p>
+</section></section>
+<section><section id="разложим-слова" class="title-slide slide level1"><h1>Разложим слова</h1></section><section id="построим-матрицу-слово-слово" class="slide level2">
+<h2>построим матрицу слово-слово</h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="im">import</span> nltk </a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb58-3" data-line-number="3">dic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="cf">for</span> sent <span class="kw">in</span> df[<span class="st">&#39;text&#39;</span>].tolist()[:<span class="dv">1000</span>]: <span class="co"># не все тексты, а только часть для простоты</span></a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">    words <span class="op">=</span> nltk.word_tokenize(sent.lower())</a>
+<a class="sourceLine" id="cb58-6" data-line-number="6">    <span class="cf">for</span> w <span class="kw">in</span> words:</a>
+<a class="sourceLine" id="cb58-7" data-line-number="7">        <span class="cf">if</span> w <span class="kw">not</span> <span class="kw">in</span> dic:</a>
+<a class="sourceLine" id="cb58-8" data-line-number="8">            dic[w] <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb58-9" data-line-number="9">        <span class="cf">for</span> w2 <span class="kw">in</span> words:</a>
+<a class="sourceLine" id="cb58-10" data-line-number="10">            dic[w][w2]<span class="op">=</span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb59-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">words_df <span class="op">=</span> pd.DataFrame(dic).fillna(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">words_df</a></code></pre></div>
+</section><section id="снова-сведем-к-2-размерностям" class="slide level2">
+<h2>Снова сведем к 2 размерностям</h2>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">pca <span class="op">=</span> PCA()</a>
+<a class="sourceLine" id="cb60-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">res <span class="op">=</span> pca.fit_transform(words_df)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb61-1" data-line-number="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">14</span>))</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="co"># plt.scatter(res[:,0], res[:,1])</span></a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="cf">for</span> i, label <span class="kw">in</span> <span class="bu">enumerate</span>(words_df.columns[:<span class="dv">300</span>]):</a>
+<a class="sourceLine" id="cb61-4" data-line-number="4">    x, y <span class="op">=</span> res[i,<span class="dv">0</span>], res[i,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb61-5" data-line-number="5">    _ <span class="op">=</span> plt.scatter(x, y)<span class="op">;</span></a>
+<a class="sourceLine" id="cb61-6" data-line-number="6">    _ <span class="op">=</span> plt.annotate(label, xy<span class="op">=</span>(x, y),  textcoords<span class="op">=</span><span class="st">&#39;offset points&#39;</span>,</a>
+<a class="sourceLine" id="cb61-7" data-line-number="7">                   ha<span class="op">=</span><span class="st">&#39;right&#39;</span>, va<span class="op">=</span><span class="st">&#39;bottom&#39;</span>, )<span class="op">;</span></a></code></pre></div>
+</section><section id="task-word-embeddings" class="slide level2">
+<h2>[task] Word embeddings</h2>
+</section></section>
+<section><section id="граммы-которые-изменили-мир" class="title-slide slide level1"><h1>Граммы, которые изменили мир</h1></section><section id="конвертируем-в-список-списков-слов" class="slide level2">
+<h2>Конвертируем в список списков слов</h2>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="im">import</span> nltk</a>
+<a class="sourceLine" id="cb62-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3">sents <span class="op">=</span> [nltk.word_tokenize(text) <span class="cf">for</span> text <span class="kw">in</span> df[<span class="st">&#39;text&#39;</span>].<span class="bu">str</span>.lower().tolist()]</a>
+<a class="sourceLine" id="cb62-4" data-line-number="4">sents[:<span class="dv">5</span>]</a></code></pre></div>
+</section><section id="обучаем-word2vec" class="slide level2">
+<h2>Обучаем word2vec</h2>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="im">import</span> gensim</a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="im">import</span> logging</a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">logging.basicConfig(<span class="bu">format</span><span class="op">=</span><span class="st">&#39;</span><span class="sc">%(asctime)s</span><span class="st"> : </span><span class="sc">%(levelname)s</span><span class="st"> : </span><span class="sc">%(message)s</span><span class="st">&#39;</span>, level<span class="op">=</span>logging.INFO)</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb63-5" data-line-number="5">model <span class="op">=</span> gensim.models.Word2Vec(</a>
+<a class="sourceLine" id="cb63-6" data-line-number="6">    sents, size<span class="op">=</span><span class="dv">150</span>, window<span class="op">=</span><span class="dv">10</span>, min_count<span class="op">=</span><span class="dv">2</span>, workers<span class="op">=</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb63-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb63-8" data-line-number="8">model.train(sents, total_examples<span class="op">=</span><span class="bu">len</span>(sents), epochs<span class="op">=</span><span class="dv">10</span>)</a></code></pre></div>
+</section><section id="каждое-слово-вектор" class="slide level2">
+<h2>Каждое слово – вектор</h2>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb64-1" data-line-number="1">model.wv[<span class="st">&#39;what&#39;</span>] <span class="co"># 150-мерный</span></a></code></pre></div>
+</section><section id="похожие-слова" class="slide level2">
+<h2>Похожие слова</h2>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb65-1" data-line-number="1">model.wv.most_similar(<span class="st">&#39;what&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" data-line-number="1">model.wv.most_similar(<span class="st">&#39;obama&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" data-line-number="1">model.wv.most_similar(<span class="st">&#39;love&#39;</span>)</a></code></pre></div>
+</section><section id="близость-слов" class="slide level2">
+<h2>Близость слов</h2>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb69-1" data-line-number="1">model.wv.distance(<span class="st">&#39;love&#39;</span>, <span class="st">&#39;hate&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb70-1" data-line-number="1">model.wv.distance(<span class="st">&#39;love&#39;</span>, <span class="st">&#39;friend&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb71-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">vocab <span class="op">=</span> <span class="bu">list</span>(model.wv.vocab)</a>
+<a class="sourceLine" id="cb71-4" data-line-number="4">X <span class="op">=</span> model[vocab]</a>
+<a class="sourceLine" id="cb71-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb71-6" data-line-number="6"><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</a>
+<a class="sourceLine" id="cb71-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb71-8" data-line-number="8">pca <span class="op">=</span> PCA(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb71-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb71-10" data-line-number="10">res <span class="op">=</span> pca.fit_transform(X)</a>
+<a class="sourceLine" id="cb71-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb71-12" data-line-number="12">w2v_df <span class="op">=</span> pd.DataFrame(res, index<span class="op">=</span>vocab, columns<span class="op">=</span>[<span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># fig = plt.figure()</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">14</span>))</a>
+<a class="sourceLine" id="cb72-3" data-line-number="3">ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb72-5" data-line-number="5">ax.scatter(w2v_df[<span class="st">&#39;x&#39;</span>], w2v_df[<span class="st">&#39;y&#39;</span>])</a>
+<a class="sourceLine" id="cb72-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb72-7" data-line-number="7"><span class="cf">for</span> word, pos <span class="kw">in</span> w2v_df.iterrows():</a>
+<a class="sourceLine" id="cb72-8" data-line-number="8">    _ <span class="op">=</span> ax.annotate(word, pos)<span class="op">;</span></a></code></pre></div>
+</section></section>
+<section><section id="pytorch" class="title-slide slide level1"><h1>PyTorch</h1></section></section>
+<section><section id="программисты-в-ужасе-от-того-что-может-генерация-кода" class="title-slide slide level1"><h1>Программисты в ужасе от того, что может генерация кода</h1></section><section id="machine-learning-for-big-code-and-naturalness" class="slide level2">
+<h2><a href="https://ml4code.github.io/papers.html">Machine Learning for Big Code and Naturalness</a></h2>
+<p><img data-src="survey.png" /> https://arxiv.org/abs/1709.06182</p>
+</section><section id="jetbrains-research" class="slide level2">
+<h2><a href="https://research.jetbrains.org/ru/groups/ml_methods">JetBrains Research</a></h2>
+</section></section>
+<section><section id="шок-количество-задач-опять-выросло" class="title-slide slide level1"><h1>ШОК! Количество задач опять выросло</h1></section></section>
+<section><section id="резюме" class="title-slide slide level1"><h1>Резюме</h1></section><section id="очень-много-чего-интересного-еще" class="slide level2">
+<h2>Очень много чего интересного еще</h2>
+<ul>
+<li>multi-task joint learning</li>
+<li>reinforcement learning</li>
+<li>корпусную лингвистику</li>
+<li>мультиязыковые модели</li>
+<li>диалоговые системы</li>
+<li>…</li>
+</ul>
+</section><section id="причины-почему-сложно" class="slide level2">
+<h2>3 причины почему сложно:</h2>
+<ul>
+<li>неоднозначен</li>
+<li>разрежен</li>
+<li>потенциально бесконечная вложенность</li>
+</ul>
+</section><section id="подхода-к-методам" class="slide level2">
+<h2>3 подхода к методам:</h2>
+<ul>
+<li>rule-based</li>
+<li>статистический</li>
+<li>нейросетевой</li>
+</ul>
+</section><section id="знайте-python" class="slide level2">
+<h2>Знайте Python</h2>
+</section><section id="знайте-классные-тулзы" class="slide level2">
+<h2>Знайте классные тулзы</h2>
+</section><section id="sklearn" class="slide level2">
+<h2>sklearn</h2>
+<p><img data-src="sklearn.png" /> https://scikit-learn.org/stable/</p>
+</section><section id="nltk" class="slide level2">
+<h2>NLTK</h2>
+<p><img data-src="nltk.png" /></p>
+<p>https://www.nltk.org/book/</p>
+</section><section id="gensim" class="slide level2">
+<h2>gensim</h2>
+<p><img data-src="gensim.png" /></p>
+<p>https://rare-technologies.com/</p>
+</section><section id="pytorch-1" class="slide level2">
+<h2>pytorch</h2>
+<p>https://github.com/hunkim/PyTorchZeroToAll</p>
+</section><section id="allennlp" class="slide level2">
+<h2>AllenNLP</h2>
+<p>https://demo.allennlp.org/machine-comprehension</p>
+</section><section id="читайте" class="slide level2">
+<h2>Читайте</h2>
+</section><section id="acl-anthology" class="slide level2">
+<h2>ACL Anthology</h2>
+<p><img data-src="acl.png" /> https://aclanthology.info</p>
+</section><section id="диалог" class="slide level2">
+<h2>Диалог</h2>
+<p><img data-src="dialog.png" /></p>
+</section><section id="arxiv" class="slide level2">
+<h2>Arxiv</h2>
+<p>https://arxiv.org</p>
+<p><img data-src="arxivfeed.png" /> https://vk.com/arxivfeed</p>
+</section><section id="semantic-scholar" class="slide level2">
+<h2>Semantic Scholar</h2>
+<p><img data-src="ss.png" /> https://www.semanticscholar.org/</p>
+</section><section id="awesome-nlp" class="slide level2">
+<h2>Awesome NLP</h2>
+<p><img data-src="awesome.png" /> https://github.com/keon/awesome-nlp</p>
+</section></section>
+<section><section id="летняя-школа-по-nlp" class="title-slide slide level1"><h1>Летняя школа по NLP</h1></section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1400,
+        height: 1000,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true },
+
+          { src: './reveal.js/plugin/chalkboard/chalkboard.js', async: true },
+        ],
+
+        keyboard: {
+	    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+	    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+	    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+	     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+	    68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+	},
+      });
+    </script>
+    </body>
+</html>
